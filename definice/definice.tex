@@ -1,0 +1,79 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[10pt,final,a4paper]{article}
+
+%% Basic packages
+\usepackage[czech]{babel}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+%% Additional packages for colors, advanced
+%% formatting options, etc.
+\usepackage{color}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{fancyvrb}
+\usepackage[small,bf]{caption}
+\usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[top=3.0cm, bottom=3.5cm, left=1.9cm, right=1.9cm]{geometry}
+
+\newcommand{\row}[2]{\item \textbf{#1} -- #2}
+
+\title{\vspace{-8ex} Definice}
+\date{\vspace{-8ex}}
+
+\begin{document}
+\maketitle
+
+\section{Teoretické základy informatiky a matematika}
+
+\section{Programové, výpočetní a informační systémy}
+\subsection{Programovací jazyky}
+\begin{itemize}
+	\row{ordinální datové typy}{pro každý prvek je definován předchůdce a následovník}
+	\row{abstraktní datový typ}{implementačně nezávislá specifikace struktury dat s povolenými operacemi (např. zásobník, fronta, seznam, ...)}
+	\row{kompilátor}{nástroj sloužící k překladu vyššího programovacího jazyka do strojového kódu}
+	\row{interpret}{nástroj umožňující vykonávat zápis programu přímo ze zdrojového kódu}
+\end{itemize}
+
+\subsection{Objektově orientované programování}
+\begin{itemize}
+	\row{zapouzdření (encapsulation)}{princip říkající, že cokoliv co nemusí být viditelné, také být nemá (tzn. maximum \texttt{private}}
+	\row{dědičnost (inheritance)}{umožňuje vytvořit podtřídu (podtyp) k existující třídě, který bude dědit její atributy a metody; jeho účel je poskytnout způsob modelování hierarchie objektů (generalizace-specializace)}
+	\row{podtypový polymorfismus, princip subsumpce}{způsob, jakým lze dosadit namísto očekávané třídy její libovolný podtyp, který se chová podle své implementace}
+	\row{událostmi řízené programování (event-drive programming)}{průchod programem řízen událostmi zaregistrovanými senzory (listenery), akcemi uživatelů nebo zprávami od ostatních procesů a vláken}
+\end{itemize}
+
+\subsection{Základní principy počítačů}
+\begin{itemize}
+	\item
+\end{itemize}
+
+\subsection{Operační systémy}
+\begin{itemize}
+	\row{monolitické jádro}{veškerý kód jádra běží ve stejném paměťovém prostoru (kernel space) a jeho jednotlivé součásti jsou silně provázány}
+	\row{mikrojádro}{jádro velmi malé obsahující pouze nejzákladnější funkce (přerušení, procesy, ...) a vše ostatní (správa FS, ovladače zařízení, síťové služby) jsou nezávislé \uv{moduly} (tzn. servery), které běží v uživatelském prostoru (user space); jejich komunikace je zajišťována jádrem pomocí zasílání zpráv}
+	\row{hybridní jádro}{kombinuje vlastnosti monolitického jádra a mikrojádra}
+	\row{proces}{spuštěný program zavedený do operační paměti}
+	\row{process control block}{struktura určená k ukládání důležitých informací o procesu}
+	\row{plánovač (scheduler)}{program řídící přepínání kontextů}
+	\row{vlákno}{objekt vznikající v rámci procesu, který je viditelný pouze uvnitř a je charakterizován svým stavem; existují 2 typy -- \textbf{user-level thread} a \textbf{kernel-level thread}}
+	\row{race condition}{chyba v systému nebo procesu ve kterém jsou nepředvídatelné výsledky a závisí na pořadí nebo načasování jednotlivých operací (obvykle při přístupu ke zdrojům)}
+	\row{kritická sekce}{segment kódu, kde se přistupuje ke sdíleným zdrojům}
+	\row{semafor}{způsob kooperace více procesů na základě zasílání jednoduchého signálu}
+	\row{monitor}{softwarový modul, který může být naráz používán pouze jedním procesem}
+	\row{kritická sekce}{segment kódu, kde se přistupuje ke sdíleným zdrojům}
+	\row{uváznutí (deadlock)}{vzniká za předpokladu, že existuje množina blokovaných procesů, kde každý proces vlastní nějaký prostředek a čeká na zdroj držený jiným procesem z této množiny (tzn. žádný nemůže pokračovat)}
+	\row{dlouhodobý plánovač (scheduler)}{rozhoduje, které programy jsou přijaté systémem na spuštění}
+	\row{krátkodobý plánovač (dispatcher)}{rozhoduje, který proces poběží na právě uvolněném CPU}
+	\row{střednědobý plánovač}{rozhoduje, který proces se zařadí mezi \uv{odložené} procesy a naopak}
+	\row{FCFS (first come, first served)}{nepreemptivní; procesy řazeny ve FIFO (tzn. první na řadě je spuštěný)}
+	\row{round robin}{každý proces dostane na CPU malou jednotku času a po jejím uplynutí je nahrazen nejstarším procesem ve frontě}
+	\row{prioritní plánování}{preemptivní/nepreemptivní; každý proces ma prioritní číslo a podle toho se přiděluje CPU; \textbf{problém stárnutí}}
+	\row{Shortest-job-first}{preemptivní/nepreemptivní (\textbf{Shortest-remaining-first}); vybírá se proces s nejkratším požadavkem na CPU (tzn. je nutné znát délku příštího požadavku pro každý proces)}
+\end{itemize}
+
+\end{document}
